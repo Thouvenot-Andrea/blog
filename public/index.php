@@ -1,14 +1,16 @@
-Bienvenue sur le blog<?php
+<?php
 
-$GET["action"] = filter_input (INPUT_GET,"action",FILTER_SANITIZE_URL);
-if ($_GET["action"] == "") {
-    include "./action/";
-} else if ($_GET["action"] == ""){
-    include "./action/";
-} else if ($_GET["action"] == ""){
-    include "./action/";
-}
-else{
-    echo "Error 404";
-}
+echo "Bienvenue sur le blog";
+
+$action= filter_input(INPUT_GET, "action", FILTER_SANITIZE_URL);
+
+include ('../config/database.php');
+
+include ('../app/controllers/homeController.php');
+
+
+
+
+
+
 
