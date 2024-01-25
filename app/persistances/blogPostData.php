@@ -3,7 +3,14 @@
 du dialogue avec la BDD.*/
 
 function lastBlogPosts($pdo)
-{
-    return [];
-}
+    {
+        $lastpost = $pdo ->query('SELECT Authors_id, title
+ 
+                FROM Posts
+                LIMIT 10
+                OFFSET 2 ');
+       echo '<br>';
+       return $lastpost ->fetchAll(PDO::FETCH_ASSOC);
+
+    }
 
