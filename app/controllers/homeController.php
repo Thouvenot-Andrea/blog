@@ -7,5 +7,6 @@ finir, appeler le rendu.*/
 echo '<br>';
 include ('../app/persistances/blogPostData.php');
 
-$result = lastBlogPosts($pdo);
-var_dump($result);
+$resultPosts = lastBlogPosts($pdo);
+//var_dump($resultPosts);
+include '../ressources/views/home.tpl.php';
