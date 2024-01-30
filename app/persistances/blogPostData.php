@@ -4,11 +4,11 @@ du dialogue avec la BDD.*/
 
 function lastBlogPosts($pdo)
     {
-        $lastpost = $pdo ->query('SELECT Authors_id
+        $lastpost = $pdo ->query("SELECT Authors_id
 
                 FROM Posts
         ORDER BY startPublicationDate DESC
-LIMIT 10');
+LIMIT 10");
        echo '<br>';
        return $lastpost ->fetchAll(PDO::FETCH_ASSOC);
     }

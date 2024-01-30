@@ -12,7 +12,7 @@
 
 <!---->
 <!--if (isset($post)){-->
-<!--    echo ("Aucun Article");-->
+<!--    echo ("Aucun Article")-->
 <!--}-->
 <!--else{-->
 <!--foreach ($resultPosts  as $post ){-->

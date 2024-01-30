@@ -4,8 +4,12 @@ afficher la page d’accueil. Il va appeler la fonction qui gère les données, 
 finir, appeler le rendu.*/
 
 //echo "Hello World";
+
 echo '<br>';
 include ('../app/persistances/blogPostData.php');
+
+global $pdo;
+
 
 $resultPosts = lastBlogPosts($pdo);
 //var_dump($resultPosts);
