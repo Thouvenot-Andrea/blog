@@ -4,13 +4,34 @@ du dialogue avec la BDD.*/
 
 function lastBlogPosts($pdo)
     {
-        $lastpost = $pdo ->query('SELECT Authors_id, title
- 
+        $lastpost = $pdo ->query('SELECT Authors_id
+
                 FROM Posts
-                LIMIT 10
-                OFFSET 2 ');
+        ORDER BY startPublicationDate DESC
+LIMIT 10');
        echo '<br>';
        return $lastpost ->fetchAll(PDO::FETCH_ASSOC);
-
     }
 
+// Afficher un article avec son auteur
+function blogPostById($pdo, $id)
+{
+    $postById = $pdo->query("SELECT Posts.id, Posts.title, Posts.post, Posts.startPublicationDate, Posts.endPublicationDate	, Authors.pseudo
+        FROM Posts
+        INNER JOIN Authors ON Posts.Authors_id = Authors.id
+        WHERE Posts.id = $id ");
+    echo '<br>';
+    return $postById->fetchAll();
+};
+
+// Afficher les commentaires
+
+function commentsByBlogPost(PDO $pdo, $id)
+{
+    $commentsPost  = $pdo->query("SELECT comment ,Comments.Authors_id,
+        FROM Comments
+        INNER JOIN Posts ON Posts.id = Comments.posts_id
+        WHERE Comments.posts_id = $id");
+    echo '<br>';
+    return  $commentsPost->fetchAll();
+};

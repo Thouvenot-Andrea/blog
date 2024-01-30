@@ -1,12 +1,29 @@
 <?php
 
-echo "Bienvenue sur le blog";
-
-$action= filter_input(INPUT_GET, "action", FILTER_SANITIZE_URL);
+//echo "Bienvenue sur le blog";
 
 include ('../config/database.php');
 
-include ('../app/controllers/homeController.php');
+$routes = [ //lien vers les différentes pages
+    'home' =>"../app/controllers/homeController.php",
+    "404" => '../ressources/views/errors/404.php',
+    'blogpost' => '../app/controllers/blogPostController.php'
+
+
+];
+$action= filter_input(INPUT_GET, "action", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+if ($action == null){
+    $action = 'home';
+}
+if ($action=='home'){
+    require $routes['home'];
+}
+
+if ($action == 'blogpost'){
+    require $routes['blogpost'];
+}
+
+
 
 
 

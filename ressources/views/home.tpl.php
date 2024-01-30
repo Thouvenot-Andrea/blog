@@ -3,13 +3,11 @@
 <?php if (empty($resultPosts)) : ?>
     <p>Aucun Article trouvé</p>
 <?php else : ?>
-<section>
-    <h1>Titre de l'article</h1>
     <?php foreach ($resultPosts as $post) : ?>
         <?= $post ['title'] ?>
     <?php endforeach; ?>
 <?php endif; ?>
-</section>
+
 
 
 <!---->
