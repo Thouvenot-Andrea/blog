@@ -3,15 +3,15 @@
 du dialogue avec la BDD.*/
 
 function lastBlogPosts($pdo)
-    {
-        $lastpost = $pdo ->query("SELECT Authors_id
+{
+    $lastpost = $pdo->query("SELECT Authors_id
 
                 FROM Posts
         ORDER BY startPublicationDate DESC
 LIMIT 10");
-       echo '<br>';
-       return $lastpost ->fetchAll(PDO::FETCH_ASSOC);
-    }
+    echo '<br>';
+    return $lastpost->fetchAll(PDO::FETCH_ASSOC);
+}
 
 // Afficher un article avec son auteur
 function blogPostById($pdo, $id)
@@ -22,7 +22,9 @@ function blogPostById($pdo, $id)
         WHERE Posts.id = $id ");
     echo '<br>';
     return $postById->fetchAll();
-};
+}
+
+;
 
 // Afficher les commentaires
 
@@ -38,10 +40,26 @@ function blogPostById($pdo, $id)
 
 //créer une fonction “blogPostCreate”
 
-function blogPostCreate($pdo,$title,$post,$Authors_id)
+function blogPostCreate($pdo, $title, $post, $Authors_id)
 {
-   $pdo->query("INSERT INTO `Posts`(`title`,`post`,`popularity`,`startPublicationDate`,`endPublicationDate`,`Authors_id`)
+    $pdo->query("INSERT INTO `Posts`(`title`,`post`,`popularity`,`startPublicationDate`,`endPublicationDate`,`Authors_id`)
        
     VALUES ('$title','$post','1',CURDATE(),CURDATE(),'$Authors_id')");
     echo '<br>';
-};
+}
+
+;
+
+//créer une fonction “blogPostUpdate”
+function blogPostUpdate($pdo, $title, $post,$id)
+{
+    $pdo->query("update Posts
+                SET title = '$title', post = '$post'
+                where id = $id");
+    echo '<br>';
+}
+
+
+
+
+

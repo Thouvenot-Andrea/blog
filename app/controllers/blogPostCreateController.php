@@ -9,6 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
     global $pdo;
     $postCreate = blogPostCreate($pdo, $title, $post, $Authors_id);
+
 }
 
 

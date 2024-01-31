@@ -6,7 +6,7 @@ finir, appeler le rendu.*/
 //echo "Hello World";
 
 echo '<br>';
-include ('../app/persistances/blogPostData.php');
+include('../app/persistances/blogPostData.php');
 
 global $pdo;
 
