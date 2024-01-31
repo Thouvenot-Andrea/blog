@@ -1,12 +1,12 @@
 
 
-<?php if (empty($resultPosts)) : ?>
-    <p>Aucun Article trouvé</p>
-<?php else : ?>
-    <?php foreach ($resultPosts as $post) : ?>
-        <?= $post ['title'] ?>
-    <?php endforeach; ?>
-<?php endif; ?>
+<?php //if (empty($resultPosts)) : ?>
+<!--    <p>Aucun Article trouvé</p>-->
+<?php //else : ?>
+<!--    --><?php //foreach ($resultPosts as $post) : ?>
+<!--        --><?php //= $post ['title'] ?>
+<!--    --><?php //endforeach; ?>
+<?php //endif; ?>
 
 
 

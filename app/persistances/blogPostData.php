@@ -26,12 +26,22 @@ function blogPostById($pdo, $id)
 
 // Afficher les commentaires
 
-function commentsByBlogPost(PDO $pdo, $id)
+//function commentsByBlogPost(PDO $pdo, $id)
+//{
+//    $commentsPost  = $pdo->query("SELECT comment ,Comments.Authors_id,
+//        FROM Comments
+//        INNER JOIN Posts ON Posts.id = Comments.posts_id
+//        WHERE Comments.posts_id = $id");
+//    echo '<br>';
+//    return  $commentsPost->fetchAll();
+//};
+
+//créer une fonction “blogPostCreate”
+
+function blogPostCreate($pdo,$title,$post,$Authors_id)
 {
-    $commentsPost  = $pdo->query("SELECT comment ,Comments.Authors_id,
-        FROM Comments
-        INNER JOIN Posts ON Posts.id = Comments.posts_id
-        WHERE Comments.posts_id = $id");
+   $pdo->query("INSERT INTO `Posts`(`title`,`post`,`popularity`,`startPublicationDate`,`endPublicationDate`,`Authors_id`)
+       
+    VALUES ('$title','$post','1',CURDATE(),CURDATE(),'$Authors_id')");
     echo '<br>';
-    return  $commentsPost->fetchAll();
 };
